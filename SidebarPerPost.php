@@ -25,7 +25,7 @@ function SidebarPerPost_register_widget_areas()
     $posts = new WP_Query(['post_type' => 'any',
         'posts_per_page' => -1,
     ]);
-    // Loop through posts/posts
+    // Loop through pages & posts
     if ($posts->have_posts()) {
         while ($posts->have_posts()) {
             $posts->the_post();
@@ -45,9 +45,9 @@ function SidebarPerPost_register_widget_areas()
             'name' => esc_html__($title, $themeTextdomain),
             'id' => 'sidebar-'. $id,
             'description' => esc_html__('Add widgets for the "'.$title.'"'),
-            'before_widget' => '', // You can change this to any tag you prefer
-            'after_widget' => '', // Close the tag
-            'before_title' => '<h2>',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">', // You can change this to any tag you prefer
+            'after_widget' => '</div>', // Close the tag
+            'before_title' => '<h2 class="widget-title">',
             'after_title' => '</h2>',
         ]
             );
@@ -56,3 +56,15 @@ function SidebarPerPost_register_widget_areas()
     }
 }
 add_action('widgets_init', 'SidebarPerPost_register_widget_areas');
+
+
+// Display the sidebars
+function SidebarPerPost_display_sidebar()
+{
+    if (is_active_sidebar(get_the_ID())) :
+        
+        dynamic_sidebar(get_the_ID());        
+
+    endif;
+}
+add_shortcode('display_current_post_sidebar', 'SidebarPerPost_display_sidebar');
