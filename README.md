@@ -34,17 +34,22 @@ Add a *mu-plugins* folder if your theme does not have one.
 
 **How do I use it?**
 
-Create a new post or page. Go to appearance->widgets and you will see a new sidebar been registered.
+Create a new post or page. Got to appearance->widgets and you will see a new sidebar been registered.
 
-**I don't see the sidebar in my page**
+To easily display the sidebar you can add the following shortcode in your content editor:
 
-This plugin at the moment just registers the sidebars. You will need to display them in your templates manually.
+```
+[display_current_post_sidebar]
+```
 
-Add the following code in the page/post template where you want the page sidebar to be displayed:
+**Advanced**
+To display the sidebar in your template add the following code:
 
 ``` 
 <?php get_sidebar(get_the_ID()); ?>
 ```
+
+If the shortcode is present in a post, the template code won't work.
 
 
 ## Further Development
