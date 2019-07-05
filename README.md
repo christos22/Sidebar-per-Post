@@ -34,7 +34,7 @@ Add a *mu-plugins* folder if your theme does not have one.
 
 **How do I use it?**
 
-Create a new post or page. Got to appearance->widgets and you will see a new sidebar been registered.
+Create a new post or page. Go to appearance->widgets and you will see a new sidebar been registered.
 
 **I don't see the sidebar in my page**
 
