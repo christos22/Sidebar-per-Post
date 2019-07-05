@@ -46,10 +46,9 @@ To easily display the sidebar you can add the following shortcode in your conten
 To display the sidebar in your template add the following code:
 
 ``` 
-<?php get_sidebar(get_the_ID()); ?>
+<?php dynamic_sidebar(get_the_ID(); ?>
 ```
 
-If the shortcode is present in a post, the template code won't work.
 
 
 ## Further Development
